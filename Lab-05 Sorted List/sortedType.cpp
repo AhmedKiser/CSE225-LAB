@@ -95,14 +95,40 @@ void sortedType<ItemType>::RetrieveItem(ItemType&item, bool& found)
 }
 
 
-/* timeStamp ::timeStamp() {}
- 
-timeStamp::timeStamp(int s, int m, int h) {
 
+timeStamp::timeStamp(int seconds, int minutes, int hours) :seconds(seconds), minutes(minutes),hours(hours)
+{}
+
+bool timeStamp:: operator==( timeStamp& t)
+{
+    return seconds == t.seconds && minutes == t.minutes && hours == t.hours;
 }
-void timeStamp :: getTime(int s,int s,int h){
 
+bool timeStamp:: operator!=( timeStamp& t)
+{
+    return !(*this == t);
 }
-  */
 
+bool timeStamp:: operator<( timeStamp& t)
+{
+
+        if(hours < t.hours)
+            return true;
+        else if(hours > t.hours)
+            return false;
+        else
+        {
+            if(minutes < t.minutes)
+            return true;
+            else if(minutes > t.minutes)
+            return false;
+            else
+            return seconds < t.seconds;
+        }
+}
+ostream& operator<<(ostream& out, timeStamp& t)
+{
+    out<<setw(2)<<setfi ll('0')<<t.seconds<<":"<<setw(2)<<setfi ll('0')<<t.minutes<<":"<<setw(2)<<setfi ll('0')<<t.hours;
+    return out;
+}
 

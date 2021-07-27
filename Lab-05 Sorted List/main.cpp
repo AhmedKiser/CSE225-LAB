@@ -3,7 +3,6 @@
 #include "sortedType.cpp"
 
 using namespace std;
-void printList(sortedType<int> ob);
 int main(){
     int a;
 
@@ -51,7 +50,7 @@ int main(){
         cout<<"List is full"<<endl;
     else
         cout<<"List is not full"<<endl;
-        
+
     cout<<"Delete 1"<<endl;
     cin>>a;
     ob.DeleteItem(a);
@@ -68,26 +67,15 @@ int main(){
     }
 
 
-    /* 
-    timeStamp sec;
-    timeStamp min;
-    timeStamp hour;
-    
-    int S,M,H;
-    cout<<"Insert 5 time values in the format ssmmhh"<<endl;
-    for (int i = 0; i < 5; i++)
-    {
-        cin>> S;
-        
-        cin>> M;
-        cin>> H;
-    }
-
- */
-
-
-
-
+sortedType<timeStamp> timeList;
+timeList.InsertItem(timeStamp(15, 34, 23));
+timeList.InsertItem(timeStamp(13, 13, 02));
+timeList.InsertItem(timeStamp(43, 45, 12));
+timeList.InsertItem(timeStamp(25, 36, 17));
+timeList.InsertItem(timeStamp(52, 02, 20));
+timeList.DeleteItem(timeStamp(25, 36, 17));
+timeStamp time;
+cout<<time<<endl;
 
 
 

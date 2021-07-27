@@ -22,23 +22,4 @@ public:
 };
 
 
-/* class timeStamp
-{
-private:
-  
-    int sec;
-    int min;
-    int hour;
-public:
-    timeStamp();
-    timeStamp(int, int , int);
-    void setTime(int,int,int);
-    void getTime();
-    
-};
- */
-
-
-
-
 #endif
