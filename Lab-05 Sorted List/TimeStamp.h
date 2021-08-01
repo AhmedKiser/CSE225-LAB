@@ -1,4 +1,5 @@
-#ifndef TIMESTAMP_H_INCLUDED
+
++#ifndef TIMESTAMP_H_INCLUDED
 #define TIMESTAMP_H_INCLUDED
 const int y = 5;
 template <class ItemType>
