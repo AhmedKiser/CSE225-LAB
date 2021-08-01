@@ -41,3 +41,13 @@ ItemType stacktype<ItemType> :: Top(){
         throw EmptyStack();
     return items[top];
 }
+
+// template<class ItemType>
+// void stacktype<ItemType>::PrintStack()
+// {
+//     while (!IsEmpty())
+//     {
+//         cout<<Top()<<endl;
+//         Pop();
+//     }
+// }

@@ -3,6 +3,12 @@
 #include "stacktype.cpp"
 using namespace std;
 
+
+void PrintStack(stacktype<int> mystack);
+bool ArePair(char opening,char closing);
+bool AreParanthesesBalanced(string exp);
+
+
 int main(){
     stacktype<int> mystack;
     int x;
@@ -14,51 +20,93 @@ int main(){
     else
         cout << "Stack is not Empty" << endl;
 
-    cout << "Push 4 items(5,7,6,9)" << endl;
+
+    cout << "Push 4 items(5,7,4,2)" << endl;
     for (int i = 0; i < 4; i++)
     {
         cin >> x;
         mystack.Push(x);
     }
-    cout << "Print "<<endl;
-    while (!mystack.IsEmpty())
-    {
-        cout << mystack.Top() << " ";
-        mystack.Pop();
-    }
-    cout << ""<< endl;
-    cout << " Push with duplicates(2,3,3,4)"<<endl;
-    for (int i = 0; i < 4; i++)
-    {
-        cin >> x;
-        mystack.Push(x);
-    }
-    cout << "Print "<<endl;
-    while (!mystack.IsEmpty())
-    {
-        cout << mystack.Top() << " ";
-        mystack.Pop();
-    }
 
-    cout <<"Push 5 and then pop"<<endl;
-    cin >> x;
-    mystack.Push(x);
-    mystack.Pop();
-    cout <<"Push 3"<<endl;
-    cin >> x;
-    mystack.Push(x);
-    cout <<"Push 7 and then pop"<<endl;
-    cin >> x;
-    mystack.Push(x);
-    mystack.Pop();
-    cout << "Top and print"<< endl;
-    cout << mystack.Top() <<endl;
-
-     if (mystack.IsEmpty())
+    if (mystack.IsEmpty())
     {
         cout << "Stack is Empty" << endl;
     }
     else
         cout << "Stack is not Empty" << endl;
+     if (mystack.IsFull())
+    {
+        cout << "Stack is Full" << endl;
+    }
+    else
+        cout << "Stack is not Full" << endl;
 
+
+    cout << "push 3" <<endl;
+    cin >> x;
+    mystack.Push(x);
+
+    PrintStack(mystack);
+    cout << "" <<endl;
+     if (mystack.IsFull())
+    {
+        cout << "Stack is Full" << endl;
+    }
+    else
+        cout << "Stack is not Full" << endl;
+
+    mystack.Pop();
+    mystack.Pop();
+
+    cout << "Top and print"<< endl;
+    cout << mystack.Top() <<endl;
+    string expression;
+    for (int i = 0; i < 4; i++){
+	cout<<"Enter an expression:  ";
+	cin>>expression;
+	if(AreParanthesesBalanced(expression))
+		cout<<"Balanced\n";
+	else
+		cout<<"Not Balanced\n";
+
+    }
+    return 0;
+}
+
+
+void PrintStack(stacktype<int> mystack)
+{
+    while (!mystack.IsEmpty())
+    {
+        cout<<mystack.Top()<<" " ;
+        mystack.Pop();
+    }
+}
+
+
+
+bool ArePair(char opening,char closing)
+{
+	if(opening == '(' && closing == ')') return true;
+	else if(opening == '{' && closing == '}') return true;
+	else if(opening == '[' && closing == ']') return true;
+	return false;
+}
+bool AreParanthesesBalanced(string exp)
+{
+
+	stacktype<char> S;
+	for(int i =0;i<exp.length();i++)
+	{
+		if(exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
+			S.Push(exp[i]);
+		else if(exp[i] == ')' || exp[i] == '}' || exp[i] == ']')
+		{
+			if(S.IsEmpty() || !ArePair(S.Top(),exp[i]))
+				return false;
+			else
+				S.Pop();
+		}
+	}
+	return S.IsEmpty() ? true:false;
 }
