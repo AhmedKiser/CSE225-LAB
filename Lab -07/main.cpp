@@ -2,20 +2,19 @@
 #include "quetype.h"
 #include "quetype.cpp"
 
-
-//void PrintQueue(QueType<int> myQue);
-void generatePrintBinary(int n);
 using namespace std;
+void PrintQueue(QueType<int> myQue);
+
 int main(){
-    /* QueType<int> myQue(5);
+    QueType<int> myQue(5);
     int x;
 
     if (myQue.IsEmpty())
     {
-        cout << "Stack is Empty" << endl;
+        cout << "Queue is Empty" << endl;
     }
     else
-        cout << "Stack is not Empty" << endl;
+        cout << "Queue is not Empty" << endl;
 
     cout << "Enqueue 4 items(5,7,4,2)" << endl;
     for (int i = 0; i < 4; i++)
@@ -26,18 +25,18 @@ int main(){
 
     if (myQue.IsEmpty())
     {
-        cout << "Stack is Empty" << endl;
+        cout << "Queue is Empty" << endl;
     }
     else
-        cout << "Stack is not Empty" << endl;
+        cout << "Queue is not Empty" << endl;
 
 
     if (myQue.IsFull())
     {
-        cout << "Stack is full" << endl;
+        cout << "Queue is full" << endl;
     }
     else
-        cout << "Stack is not full" << endl;
+        cout << "Queue is not full" << endl;
 
     cout << "Queue another item (6) : ";
     cin >> x;
@@ -46,18 +45,26 @@ int main(){
     }
     else
         myQue.Enqueue(x);
-
+    cout <<"Print the values in the queue (in the order the values are given as input)" <<endl;
     PrintQueue(myQue);
     cout << "" <<endl;
-    cout << "push 3" <<endl;
+    if (myQue.IsFull())
+    {
+        cout << "Queue is full" << endl;
+    }
+    else
+        cout << "Queue is not full" << endl;
+    cout << "Queue another item : ";
     cin >> x;
+
     if (myQue.IsFull()){
         cout << "Queue overflow" <<endl;
     }
     else
         myQue.Enqueue(x);
+    cout << "" <<endl;
 
-
+    cout << "Dequeue two items" <<endl;
     myQue.Dequeue(x);
     myQue.Dequeue(x);
     PrintQueue(myQue);
@@ -66,15 +73,16 @@ int main(){
     myQue.Dequeue(x);
     myQue.Dequeue(x);
     myQue.Dequeue(x);
+    cout << "Dequeue three items" <<endl;
 
     if (myQue.IsEmpty())
     {
-        cout << "Stack is Empty" << endl;
+        cout << "Queue is Empty" << endl;
     }
     else
-        cout << "Stack is not Empty" << endl;
+        cout << "Queue is not Empty" << endl;
 
-
+    cout << "Dequeue another items" <<endl;
     try
     {
 
@@ -85,38 +93,30 @@ int main(){
     catch (EmptyQueue)
     {
         cout << "Queue Underflow";
-    } */
-    int n = 10;
-   // generatePrintBinary(n);
-    // Create an empty queue of strings
+    }
+    cout << "" <<endl;
+
+
+    int n ;
+    cout << "Input an integer(10) : ";
+    cin >> n;
     QueType<string> q;
-
-    // Enqueue the first binary number
     q.Enqueue("1");
-
-    // This loops is like BFS of a tree with 1 as root
-    // 0 as left child and 1 as right child and so on
     while (n--) {
-        // print the front of queue
-        string s1 = q.Peak();
+        string s1 = "1";
         q.Dequeue(s1);
         cout << s1 << "\n";
-
-        string s2 = s1; // Store s1 before changing it
-
-        // Append "0" to s1 and enqueue it
+        string s2 = s1;
         q.Enqueue(s1.append("0"));
-
-        // Append "1" to s2 and enqueue it. Note that s2
-        // contains the previous front
         q.Enqueue(s2.append("1"));
     }
+
     return 0;
 
 }
 
 
-/* void PrintQueue(QueType<int> myQue)
+void PrintQueue(QueType<int> myQue)
 {
     int x;
     while (!myQue.IsEmpty())
@@ -126,31 +126,3 @@ int main(){
         cout<<x<< " ";
     }
 }
- */
-void generatePrintBinary(int n)
-{
-    // Create an empty queue of strings
-    QueType<string> q;
-
-    // Enqueue the first binary number
-    q.Enqueue("1");
-
-    // This loops is like BFS of a tree with 1 as root
-    // 0 as left child and 1 as right child and so on
-    while (n--) {
-        // print the front of queue
-        string s1 = q.Peak();
-       // q.Dequeue(n);
-        cout << s1 << "\n";
-
-        string s2 = s1; // Store s1 before changing it
-
-        // Append "0" to s1 and enqueue it
-        q.Enqueue(s1.append("0"));
-
-        // Append "1" to s2 and enqueue it. Note that s2
-        // contains the previous front
-        q.Enqueue(s2.append("1"));
-    }
-}
-

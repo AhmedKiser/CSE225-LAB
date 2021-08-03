@@ -15,7 +15,7 @@ public:
     bool IsFull();
     void Enqueue(ItemType);
     void Dequeue(ItemType&);
-    ItemType Peak();
+    
 private:
     int front;
     int rear;

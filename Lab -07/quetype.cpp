@@ -62,8 +62,3 @@ void QueType<ItemType>::Dequeue(ItemType& item)
     item = items[front];
   }
 }
-template<class ItemType>
-ItemType QueType<ItemType>::Peak()
-{
-    return items[front];
-}
