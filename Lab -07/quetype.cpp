@@ -52,7 +52,7 @@ void QueType<ItemType>::Enqueue(ItemType newItem)
   }
 }
 template <class ItemType>
-void QueType<ItemType>::Dequeue(ItemType& item)
+void QueType<ItemType>::Dequeue(ItemType item)
 {
   if (IsEmpty())
     throw EmptyQueue();

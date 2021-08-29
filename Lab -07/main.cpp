@@ -6,7 +6,7 @@ using namespace std;
 void PrintQueue(QueType<int> myQue);
 
 int main(){
-    QueType<int> myQue(5);
+    QueType<int> myQue;
     int x;
 
     if (myQue.IsEmpty())
@@ -47,6 +47,8 @@ int main(){
         myQue.Enqueue(x);
     cout <<"Print the values in the queue (in the order the values are given as input)" <<endl;
     PrintQueue(myQue);
+    cout<< " "<<endl;
+   
     cout << "" <<endl;
     if (myQue.IsFull())
     {

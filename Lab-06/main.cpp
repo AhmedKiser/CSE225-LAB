@@ -61,7 +61,7 @@ int main(){
     cout << "Top and print"<< endl;
     cout << mystack.Top() <<endl;
     string expression;
-    for (int i = 0; i < 4; i++){
+    // for (int i = 0; i < 4; i++){
 	cout<<"Enter an expression:  ";
 	cin>>expression;
 	if(AreParanthesesBalanced(expression))
@@ -69,7 +69,7 @@ int main(){
 	else
 		cout<<"Not Balanced\n";
 
-    }
+    // }
     return 0;
 }
 
